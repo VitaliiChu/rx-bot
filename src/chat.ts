@@ -10,9 +10,9 @@ export class Message  {
 }
 
 export const sentMessage$: Subject<Message> = new Subject();
-export const incommingMessage$: Subject<Message> = new Subject();
+export const incomingMessage$: Subject<Message> = new Subject();
 
-export const newMessage$ = merge<Message>(sentMessage$, incommingMessage$);
+export const newMessage$ = merge<Message>(sentMessage$, incomingMessage$);
 
 export const messages$: Observable<Message[]> = newMessage$.pipe(
   scan((messages, m) => [...messages, m], [])

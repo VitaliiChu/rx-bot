@@ -1,4 +1,4 @@
-import { Message, sentMessage$, incommingMessage$ } from './chat';
+import { Message, sentMessage$, incomingMessage$ } from './chat';
 import { OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ function subscribeBot(bot: Bot, reply: Reply) {
     map(m => m.text),
     reply,
     map(m => new Message(bot.name, m))
-  ).subscribe(incommingMessage$)
+  ).subscribe(incomingMessage$)
 }
 
 export function hasWord(word: string): (message: string) => boolean {
