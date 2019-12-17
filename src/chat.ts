@@ -1,11 +1,11 @@
-import { Subject, Observable, merge } from 'rxjs';
-import { scan } from 'rxjs/operators';
+import { Subject, Observable, merge } from "rxjs";
+import { scan } from "rxjs/operators";
 
-export class Message  {
+export class Message {
   constructor(public author: string, public text: string) {}
 
   print(): string {
-    return `${this.author}: ${this.text}`
+    return `${this.author}: ${this.text}`;
   }
 }
 
@@ -19,5 +19,5 @@ export const messages$: Observable<Message[]> = newMessage$.pipe(
 );
 
 export function send(message: string) {
-  sentMessage$.next(new Message('user', message));
+  sentMessage$.next(new Message("user", message));
 }

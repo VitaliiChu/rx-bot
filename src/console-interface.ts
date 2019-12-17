@@ -1,21 +1,22 @@
-import * as chat from './chat';
-import { registry, Bot } from './bot';
+import * as chat from "./chat";
+import { registry, Bot } from "./bot";
 
 showIntro();
 
-chat.messages$
-  .subscribe(printAll);
+chat.messages$.subscribe(printAll);
 
 function printAll(messages: chat.Message[]) {
   console.clear();
   showIntro();
-  messages.forEach((m) => {
+  messages.forEach(m => {
     console.log(m.print());
-  })
+  });
 }
 
 declare global {
-  interface Window { chat: any }
+  interface Window {
+    chat: any;
+  }
 }
 
 window.chat = chat;
@@ -28,6 +29,6 @@ function showIntro() {
     describe(b: Bot) {
       console.log(`@${b.name}: ${b.description}`);
     }
-  })
-  console.log('Try in console\n> chat.send("@echo Hello World!")')
+  });
+  console.log('Try in console\n> chat.send("@echo Hello World!")');
 }
